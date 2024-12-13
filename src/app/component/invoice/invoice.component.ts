@@ -36,4 +36,8 @@ constructor(private productService:ProductService){}
   completePayment(): void {
     this.paymentSuccessful = true; 
   }
+
+  goBack() {
+    window.history.back();  
+  }
 }

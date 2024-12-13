@@ -38,7 +38,7 @@ export class ProductComponent implements OnInit {
 
   getCategoryImage(categoryId: number): string {
     const category = this.categories.find((cat) => cat.id === categoryId);
-    return category ? category.image : 'assets/images/supermarket.jpg';
+    return category ? category.image : '../../assets/images/supermarket.jpg';
   }
 
   addToCart(product: Product): void {

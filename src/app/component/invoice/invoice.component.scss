@@ -33,6 +33,13 @@
     flex-direction: row;
     justify-content: space-between;
   }
+  .total-card {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
   
   .content-section {
     display: flex;
@@ -94,21 +101,46 @@
 
   }
   
-  .order-summary {
-    width: 100%;
-    // max-width: 500px;
-    background: #ffffff;
-    padding: 15px;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+  .order-info {
+    margin-top: 20px;
   }
   
-
+  .order-info h4 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  .payment-summary {
+    margin-top: 20px;
+  }
+  
+  .payment-summary h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color:  #333;
+    margin-bottom: 12px;
+  }
+  
+  .payment-summary ul {
+    list-style: none; 
+    padding: 0;
+  }
+  
+  .payment-summary li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px; 
+  }
   
   .customer-info {
     margin-top: 10px;
-    // width: 100%;
     max-width: 500px;
     background: #ffffff;
     padding: 15px;
@@ -116,17 +148,18 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  .customer-info h4 {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .customer-info .info-detail {
+  .customer-info p {
+    display: flex;
+    justify-content: space-between;
     font-size: 14px;
     color: #555;
-    margin: 5px 0;
+    margin-bottom: 8px;
+  }
+
+  mat-card-actions {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
   }
   
   

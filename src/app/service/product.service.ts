@@ -10,6 +10,7 @@ export class ProductService {
 
   constructor() {}
 
+
   getCategories() {
     return CATEGORIES;
   }
@@ -30,6 +31,7 @@ export class ProductService {
       }
   
       this.updateCartInLocalStorage(cart);
+      window.location.reload();
     } else {
       console.error('localStorage is not available.');
     }
@@ -50,6 +52,7 @@ export class ProductService {
         }
   
         this.updateCartInLocalStorage(cart);
+        window.location.reload();
       }
     } else {
       console.error('localStorage is not available.');

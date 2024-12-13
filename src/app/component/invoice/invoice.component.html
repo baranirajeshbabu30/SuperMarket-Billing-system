@@ -1,7 +1,8 @@
 <div class="main-content">
   <div class="content-section">
-
 <div class="invoice-section">
+  <button (click)="goBack()">Back</button>
+
     <h2>Invoice</h2>
     
     <div class="table-container">
@@ -9,7 +10,7 @@
 
           <ng-container matColumnDef="number">
             <th mat-header-cell *matHeaderCellDef> No </th>
-            <td mat-cell *matCellDef="let element">  </td>
+            <td mat-cell *matCellDef="let element;  let i = index"> {{ i + 1 }}  </td>
           </ng-container>
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef> Name </th>
@@ -41,11 +42,20 @@
           <mat-card-content class="total-content">
             <div class="total-left">
               <h3>Total</h3>
+              <h3>Tax</h3>
+              <h3>Discount</h3>
+            <h2>Grand Total</h2>
+
             </div>
             <div class="total-right">
               <h3>${{ grandTotal }}</h3>
+              <h3>56</h3>
+              <h3>18%</h3>
+              <h2>${{ grandTotal }}</h2>
+
             </div>
           </mat-card-content>
+        
         </mat-card>
       </div>
       
@@ -64,9 +74,9 @@
     <div class="payment-summary">
       <h3>Payment Summary</h3>
       <ul>
-        <li>Cash: ${{ grandTotal }}</li>
-        <li>Amount Received: ${{ grandTotal }}</li>
-        <li>Remaining Amount: $0</li>
+        <li>Cash: <span>${{ grandTotal }}</span></li>
+    <li>Amount Received: <span>${{ grandTotal }}</span></li>
+    <li>Remaining Amount: <span>$0</span></li>
       </ul>
     </div>
 
@@ -76,7 +86,16 @@
       <p><strong>Phone:</strong> +1-234-567-8901</p>
       <p><strong>Address:</strong> 123 Main Street, Springfield, USA</p>
     </div>
-  
+    <div>
+      <mat-card >
+       
+        <mat-card-actions>
+          <button mat-raised-button color="primary" >pdf</button>
+          <button mat-raised-button color="accent" >xps</button>
+          <button mat-raised-button color="warn" >print</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
   </div>
   </div>
 </div>

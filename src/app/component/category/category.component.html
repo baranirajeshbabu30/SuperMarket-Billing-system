@@ -1,6 +1,8 @@
 <mat-nav-list>
     <mat-list-item *ngFor="let category of categories"
-    [routerLink]="['/products', category.id]">
+    [routerLink]="['/products', category.id]"
+    class="custom-list-item"
+    routerLinkActive="active">
       {{ category.name }}
     </mat-list-item>
   </mat-nav-list>

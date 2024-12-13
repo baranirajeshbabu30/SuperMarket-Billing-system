@@ -2,3 +2,18 @@ mat-list-item {
     cursor: pointer;
     // padding: 10px 16px;
   }
+  .custom-list-item {
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 4px; 
+  }
+  
+  .custom-list-item:hover {
+    background-color: #d0e6f8; 
+    color: blue; 
+  }
+  
+  .active {
+    background-color: #1565c0; 
+    color: blue; 
+  }
+  
