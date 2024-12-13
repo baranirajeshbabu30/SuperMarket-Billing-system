@@ -1,39 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Cart } from '../../service/mock-product-data';
-import { CommonModule } from '@angular/common';
+import { ProductService } from '../../service/product.service';
 import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-invoice',
-  imports: [CommonModule,MatTableModule],
+  imports: [MatTableModule, MatIconModule, MatCardModule,MatButtonModule],
+
   templateUrl: './invoice.component.html',
-  styleUrl: './invoice.component.scss'
+  styleUrls: ['./invoice.component.scss']
 })
 export class InvoiceComponent implements OnInit {
-  totalAmount: number = 0;
-  amountReceived: number = 0;
-  paymentMethod: string = '';
-  cartItems: Cart[] = []; 
-  displayedColumns: string[] = ['name', 'price', 'count', 'total'];
-  constructor(private router: Router) {}
+  cartItems: any[] = [];
+  grandTotal: number = 0;
+  paymentSuccessful: boolean = false;
+  displayedColumns: string[] = ['number','name', 'quantity', 'price','total'];
 
+constructor(private productService:ProductService){}
   ngOnInit(): void {
-    const state = this.router.getCurrentNavigation()?.extras.state;
-    if (state) {
-      this.amountReceived = state['amountReceived'];
-      this.totalAmount = state['totalAmount'];
-      this.paymentMethod = state['paymentMethod'];
-      this.cartItems = state['cartItems'] || []; 
-    }
-
-    this.calculateTotalAmount();
+    this.loadCartItems();
+    this.calculateGrandTotal();
   }
 
-  calculateTotalAmount(): void {
-    this.totalAmount = this.cartItems.reduce((total, item) => {
-      const count = item.count || 0; 
-      return total + (item.price * count);
-    }, 0);
+  loadCartItems(): void {
+    this.cartItems = this.productService.getCartProducts();
+    console.log('Cart Items Loaded:', this.cartItems);
+  }
+
+  calculateGrandTotal(): void {
+    this.grandTotal = this.cartItems.reduce((total, item) => total + item.price * item.count, 0);
+  }
+
+  completePayment(): void {
+    this.paymentSuccessful = true; 
   }
 }

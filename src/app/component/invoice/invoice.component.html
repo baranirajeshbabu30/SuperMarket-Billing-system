@@ -1,34 +1,85 @@
-<div *ngIf="cartItems.length > 0">
+<div class="main-content">
+  <div class="content-section">
+
+<div class="invoice-section">
     <h2>Invoice</h2>
     
-    <table mat-table [dataSource]="cartItems" class="mat-elevation-z8">
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Product </th>
-        <td mat-cell *matCellDef="let item"> {{ item.name }} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="price">
-        <th mat-header-cell *matHeaderCellDef> Price </th>
-        <td mat-cell *matCellDef="let item"> {{ item.price | currency }} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="count">
-        <th mat-header-cell *matHeaderCellDef> Quantity </th>
-        <td mat-cell *matCellDef="let item"> {{ item.count }} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="total">
-        <th mat-header-cell *matHeaderCellDef> Total </th>
-        <td mat-cell *matCellDef="let item"> {{ item.price * item.count | currency }} </td>
-      </ng-container>
-  
-      <!-- Table Header and Row Definitions -->
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+    <div class="table-container">
+        <table mat-table [dataSource]="cartItems" class="mat-elevation-z8">
+
+          <ng-container matColumnDef="number">
+            <th mat-header-cell *matHeaderCellDef> No </th>
+            <td mat-cell *matCellDef="let element">  </td>
+          </ng-container>
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="quantity">
+            <th mat-header-cell *matHeaderCellDef> Quantity </th>
+            <td mat-cell *matCellDef="let element"> {{ element.count }} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef> Price </th>
+            <td mat-cell *matCellDef="let element"> ${{ element.price }} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="total">
+            <th mat-header-cell *matHeaderCellDef> Total </th>
+            <td mat-cell *matCellDef="let element"> ${{ element.count * element.price }} </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+      
+      <div >
+        <mat-card class="total-card">
+          <mat-card-content class="total-content">
+            <div class="total-left">
+              <h3>Total</h3>
+            </div>
+            <div class="total-right">
+              <h3>${{ grandTotal }}</h3>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      
   </div>
+  <div class="payment-section">
+    <div class="payment-success">
+      <mat-icon class="success-icon" color="primary">check_circle</mat-icon>
+      <h2>Payment Successful</h2>
+    </div>
+
+    <div class="order-info">
+      <h4>Order Number: <span>123456</span></h4>
+      <h4>Bill Number: <span>789012</span></h4>
+    </div>
+
+    <div class="payment-summary">
+      <h3>Payment Summary</h3>
+      <ul>
+        <li>Cash: ${{ grandTotal }}</li>
+        <li>Amount Received: ${{ grandTotal }}</li>
+        <li>Remaining Amount: $0</li>
+      </ul>
+    </div>
+
+    <div class="customer-info">
+      <h3>Customer Info</h3>
+      <p><strong>Name:</strong> John Doe</p>
+      <p><strong>Phone:</strong> +1-234-567-8901</p>
+      <p><strong>Address:</strong> 123 Main Street, Springfield, USA</p>
+    </div>
   
-  <div *ngIf="cartItems.length === 0">
-    <p>No items in the cart.</p>
   </div>
+  </div>
+</div>
+  
+ 
   

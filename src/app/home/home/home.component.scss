@@ -9,23 +9,23 @@
   }
   
   .main-content {
-    height: 100%; /* Ensures the main content fills the container */
+    height: 100%; 
     display: flex;
   }
   
   .content-section {
     display: flex;
     flex-grow: 1;
-    height: 100%; /* Ensures the content section fills the container */
-    overflow: hidden; /* Prevents extra scrollbars */
+    height: 100%; 
+    overflow: hidden; 
   }
   
   .products-section,
   .cart-section {
     flex: 1;
     padding: 20px;
-    overflow-y: auto; /* Enables vertical scrolling */
-    max-height: 100%; /* Ensures sections don't exceed the container's height */
+    overflow-y: auto; 
+    max-height: 100%; 
   }
   
   .products-section {
@@ -38,7 +38,6 @@
     background-color: #f0f0f0;
   }
   
-  /* Optional: Add custom scrollbar styles */
   .products-section::-webkit-scrollbar,
   .cart-section::-webkit-scrollbar {
     width: 8px;

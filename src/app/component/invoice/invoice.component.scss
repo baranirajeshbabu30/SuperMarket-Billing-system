@@ -1,0 +1,132 @@
+.invoice-section {
+    flex: 1; 
+    background-color: #f9f9f9;
+  }
+  
+  .payment-section {
+    // flex: 2.2; /* Increase width */
+    background-color: #f0f0f0;
+  }
+  
+  .table-container {
+    max-height: 300px; /* Adjust as needed */
+    overflow-y: auto;
+    border: 1px solid #ddd;
+
+  }
+  
+  .table-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  .total-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .content-section {
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+    gap:20px;
+    margin-left: 20px;
+  }
+  
+  .invoice-section::-webkit-scrollbar,
+  .payment-section::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .invoice-section::-webkit-scrollbar-thumb,
+  .payment-section::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+  
+  .invoice-section::-webkit-scrollbar-thumb:hover,
+  .payment-section::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  .payment-section {
+    flex: 0.3;
+    background-color: #f0f0f0;
+    padding: 20px;
+    // display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    overflow-y: auto;
+    margin-right: 20px;
+    margin-top: 20px;
+  }
+  
+  .payment-success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .payment-success mat-icon {
+    width: auto; 
+    height: auto;
+    font-size: 45px;
+    color: #4caf50;
+    // margin-bottom: 10px;
+  }
+  
+  .payment-success h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4caf50;
+
+  }
+  
+  .order-summary {
+    width: 100%;
+    // max-width: 500px;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+
+  
+  .customer-info {
+    margin-top: 10px;
+    // width: 100%;
+    max-width: 500px;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .customer-info h4 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .customer-info .info-detail {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0;
+  }
+  
+  
