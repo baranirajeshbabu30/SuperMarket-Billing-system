@@ -1,0 +1,34 @@
+<div *ngIf="cartItems.length > 0">
+    <h2>Invoice</h2>
+    
+    <table mat-table [dataSource]="cartItems" class="mat-elevation-z8">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Product </th>
+        <td mat-cell *matCellDef="let item"> {{ item.name }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Price </th>
+        <td mat-cell *matCellDef="let item"> {{ item.price | currency }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="count">
+        <th mat-header-cell *matHeaderCellDef> Quantity </th>
+        <td mat-cell *matCellDef="let item"> {{ item.count }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef> Total </th>
+        <td mat-cell *matCellDef="let item"> {{ item.price * item.count | currency }} </td>
+      </ng-container>
+  
+      <!-- Table Header and Row Definitions -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  
+  <div *ngIf="cartItems.length === 0">
+    <p>No items in the cart.</p>
+  </div>
+  

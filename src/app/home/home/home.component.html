@@ -1,0 +1,25 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened class="custom-sidenav">
+    <h2>Categories</h2>
+    <app-category></app-category>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <div class="main-content">
+      <div class="content-section">
+        <div class="products-section">
+          <h2>Products</h2>
+    <router-outlet></router-outlet>
+
+          <app-product></app-product>
+        </div>
+
+        <div class="cart-section">
+          <h2>Cart</h2>
+          <app-cart></app-cart>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

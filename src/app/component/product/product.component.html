@@ -1,0 +1,24 @@
+<div class="products-container">
+  <div *ngFor="let product of filteredProducts" class="product-card">
+    <mat-card>
+      <mat-card-content>
+        <img mat-card-image src="{{ getCategoryImage(product.categoryId) }}" />
+        <mat-card-title>{{ product.name }}</mat-card-title>
+        <div class="product-details">
+          <p><strong>Price:</strong> ${{ product.price }}</p>
+          <p><strong>Quantity:</strong> {{ product.quantity }}</p>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button *ngIf="!isInCart(product.productId)" mat-flat-button (click)="addToCart(product)">
+          Add to Cart
+        </button>
+        <div *ngIf="isInCart(product.productId)">
+          <button mat-button (click)="decrementCount(product.productId)">-</button>
+          <span>{{ getCartCount(product.productId) }}</span>
+          <button mat-button (click)="incrementCount(product.productId)">+</button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

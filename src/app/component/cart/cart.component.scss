@@ -1,0 +1,38 @@
+.table-container {
+    max-height: 300px; /* Adjust as per your layout */
+    overflow-y: auto; /* Enables vertical scrolling */
+    border: 1px solid #ddd; /* Optional: Adds a border for better visual distinction */
+  }
+  
+  .table-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+.total-card {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.total-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+mat-card-actions {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+  }

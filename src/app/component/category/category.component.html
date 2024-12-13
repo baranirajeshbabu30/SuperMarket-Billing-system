@@ -1,0 +1,7 @@
+<mat-nav-list>
+    <mat-list-item *ngFor="let category of categories"
+    [routerLink]="['/products', category.id]">
+      {{ category.name }}
+    </mat-list-item>
+  </mat-nav-list>
+  

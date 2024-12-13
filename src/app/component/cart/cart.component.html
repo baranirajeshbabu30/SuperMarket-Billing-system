@@ -1,0 +1,46 @@
+<div class="table-container">
+  <table mat-table [dataSource]="cartItems" class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{ element.name }}({{element.quantity}}kg/{{element.price}}Rs) </td>
+    </ng-container>
+
+    <ng-container matColumnDef="count">
+      <th mat-header-cell *matHeaderCellDef> Count </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button (click)="decrementCount(element)">
+          <mat-icon>arrow_downward</mat-icon>
+        </button>
+        {{ element.count }}
+        <button mat-button (click)="incrementCount(element)">
+          <mat-icon>arrow_upward</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> Price </th>
+      <td mat-cell *matCellDef="let element"> ${{ element.count * element.price  }} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+<div>
+  <mat-card class="total-card">
+    <mat-card-content class="total-content">
+      <div class="total-left">
+        <h3>Total</h3>
+      </div>
+      <div class="total-right">
+        <h3>${{ grandTotal }}</h3>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="selectPayment('Cash')">Cash</button>
+      <button mat-raised-button color="accent" (click)="selectPayment('Credit Card')">Credit Card</button>
+      <button mat-raised-button color="warn" (click)="selectPayment('UPI')">UPI</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
